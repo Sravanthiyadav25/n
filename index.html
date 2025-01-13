@@ -1,86 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0, width=device-width, height=device-height, user-scalable=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    
+    <title>Jeevic</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0ecec;
-            font-family: Arial, sans-serif;
-        }
-        .login-box {
-            width: 300px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            text-align: center;
-        }
-        .login-box h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-        }
-        .login-box input[type="text"],
-        .login-box input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .login-box button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .login-box button:hover {
-            background-color: #45a049;
-        }
-        .error-message {
-            color: red;
-            font-size: 14px;
-        }
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0047FF;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #0039CC;
+    border-radius: 5px;
+}
+
+.nav-links .btn {
+    background: white;
+    color: #0047FF;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-links .btn:hover {
+    background: #e8e8e8;
+}
+
+/* Hero Section */
+#hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom right, #6788da, #e44ccb);
+    color: white;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.cta {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cta input {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.cta button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: white;
+    color: #0047FF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta button:hover {
+    background-color: #e8e8e8;
+}
+
+/* About Section */
+#about {
+    padding: 2rem;
+    text-align: center;
+    background: rgb(174, 177, 234);
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #0771b9;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
     </style>
+    <script>
+        function subscribe() {
+    const email = document.getElementById('email').value;
+    if (email) {
+        alert(`Thank you for signing up with ${email}!`);
+    } else {
+        alert('Please enter a valid email address.');
+    }
+}
+
+    </script>
+
 </head>
 <body>
-    <div class="login-box">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <div class="error-message" id="error-message"></div>
-        <button onclick="login()">Login</button>
-    </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Jeevic Cafe and Conveniance Store</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a class="btn" href="#">Get a Demo</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <script>
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('error-message');
+    <section id="hero">
+        <h1>Create Better Moments with Jeevic Cafe</h1>
+        <p>Experience premium coffee, snacks, and daily convenience with us. Try our services for free.</p>
+        <div class="cta">
+            <input type="email" placeholder="Enter your email" id="email">
+            <button onclick="subscribe()">Sign Up</button>
+        </div>
+    </section>
 
-          
-            const correctUsername = "sravanthi yadav";
-            const correctPassword = "25-12";
+    <section id="about">
+        <h2>About Jeevic</h2>
+        <p>Jeevic Cafe is your go-to place for delicious treats and daily essentials. We believe in creating memorable moments for our customers, whether it's with a hot cup of coffee or convenient services.</p>
+    </section>
 
-            if (username === correctUsername && password === correctPassword) {
-                // Redirect to the details page if login is successful
-                window.location.href = "main.html";
-            } else {
-                errorMessage.textContent = "Incorrect username or password!";
-            }
-        }
-    </script>
+    <footer>
+        <p>&copy; 2025 Jeevic Cafe. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
